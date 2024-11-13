@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Praticando GRID</title>
+</head>
+
+<body>
+    <!-- container -->
+    <main class="container">
+        <!-- navegação -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.webp" alt="">
+            </div>
+            <i class="fa-solid fa-bars" id="show" onclick="show()"></i>
+            <i class="fa-solid fa-rotate-left" id="back" onclick="back()"></i>
+            <ul class="paginacao" id="pageDesk">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Quem Somos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        <!-- conteúdo geral -->
+        <section class="conteudoPrincipal">
+            <h2>Conteúdo Principal</h2>
+        </section>
+        <aside class="lateral">
+            <h2>lateral</h2>
+        </aside>
+        <!-- Rodape -->
+        <footer class="rodape">
+            <h4>Todos os direitos reservados</h4>
+        </footer>
+    </main>
+    <script>
+        // funções javaScript
+        function show() {
+            var idOriginal = document.getElementById('pageDesk');
+            var showButton = document.getElementById('show');
+            var backButton = document.getElementById('back');
+
+            if (idOriginal) {
+                // alert(idOriginal.value);
+                idOriginal.classList.toggle('paginacaoMobile');
+                showButton.style.display = 'none';
+                backButton.style.display = 'block';
+
+            }
+
+        }
+        function back() {
+            var idOriginal = document.getElementById('pageDesk');
+            var showButton = document.getElementById('show');
+            var backButton = document.getElementById('back');
+
+            if (idOriginal) {
+                // alert(idOriginal.value);
+                idOriginal.classList.remove('paginacaoMobile');
+                backButton.style.display = 'none';
+                showButton.style.display = 'block';
+
+
+            }
+
+        }
+
+        function ajustarBotoes() {
+            var larguraTela = window.innerWidth;
+            var showButton = document.getElementById('show');
+            var backButton = document.getElementById('back');
+
+            if (larguraTela >= 768) { // 
+                showButton.style.display = 'none';
+                backButton.style.display = 'none';
+            } else {
+                showButton.style.display = 'block';  
+                backButton.style.display = 'none';   
+            }
+        }
+
+        // Chama a função ao redimensionar a janela
+        window.onresize = ajustarBotoes;
+
+        // Chama a função ao carregar a página
+        window.onload = ajustarBotoes;
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+a:hover {
+    border-bottom: solid 2px red;
+    transition: .3s;
+}
+
+.container {
+    min-width: 415px;
+    display: grid;
+    border: solid 1px red;
+
+    grid-template-areas:
+        "navbar navbar navbar"
+        "lateral conteudoPrincipal conteudoPrincipal"
+        "rodape rodape rodape"
+    ;
+
+
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    grid-area: navbar;
+    background-color: rgb(87, 98, 169);
+    grid-template-rows: auto, 1fr;
+    height: 80px;
+}
+
+.logo {
+    color: #fff;
+
+    /* border: solid 1px red; */
+}
+
+.logo img {
+    color: #fff;
+    width: 60px;
+}
+
+.paginacao {
+    align-items: center;
+    display: flex;
+    gap: 7px;
+    /* border: solid 1px blue; */
+}
+
+.conteudoPrincipal,
+.lateral {
+    height: 700px;
+}
+
+.conteudoPrincipal {
+
+    grid-area: conteudoPrincipal;
+    background-color: brown;
+}
+
+.lateral {
+    grid-area: lateral;
+    background-color: chocolate;
+}
+
+.rodape {
+    height: 300px;
+    grid-area: rodape;
+    background-color: aquamarine;
+}
+
+/* MOBILE */
+
+@media(min-width: 768px) {
+    #show {
+        display: none;
+    }
+
+    #back {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    .container {
+        /* display: grid;     */
+        /* border: solid 1px red; */
+
+        grid-template-areas:
+            "navbar"
+            "conteudoPrincipal"
+            "rodape"
+        ;
+
+    }
+
+    #show {
+        display: block;
+        font-size: 50px;
+        color: #fff;
+    }
+
+    #back {
+        /* display: block; */
+        font-size: 50px;
+        color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .paginacao {
+        display: none;
+    }
+
+    .paginacaoMobile {
+        display: inline;
+        padding: 10px;
+        z-index: 0;
+        transition: 1.5s;
+
+        height: 700px;
+        width: 470px;
+        background-color: black;
+
+    }
+
+    .paginacaoMobile li{
+        margin-bottom: 15px;
+    }
+
+    .paginacaoMobile a {
+        font-size: 2rem;
+    }
+
+    .lateral {
+        display: none;
+    }
+}
